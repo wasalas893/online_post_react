@@ -110,7 +110,7 @@ handleSubmit(e){
             <div className="form-group">
               <button className="btn btn-primary col-sm-12">Save</button>
             </div>
-            <button className="btn btn-primary">Post</button>
+           
           </form>
          
          {this.renderPosts()}
