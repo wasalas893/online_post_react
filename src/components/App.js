@@ -11,6 +11,8 @@ import {getNotes,saveNote,deleteNote} from '../actions/notesAction';
 
 import NoteCard from './NoteCard'
 
+import {getUser} from '../actions/userAction';
+
 class App extends Component  {
 
 //react method
@@ -42,6 +44,9 @@ componentDidMount(){
     });
 
   });
+
+  this.props.getUser();
+  
 }
 
 //render posts from firebase
@@ -124,10 +129,11 @@ handleSubmit(e){
 
 function mapStateTopProps(state,ownProps){
   return{
-    notes:state.notes
+    notes:state.notes,
+    user:state.user
   };
 }
 
-export default connect(mapStateTopProps,{getNotes,saveNote,deleteNote}) (App);
+export default connect(mapStateTopProps,{getNotes,saveNote,deleteNote,getUser}) (App);
 
 

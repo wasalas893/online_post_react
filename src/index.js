@@ -17,6 +17,8 @@ import rootReducer from './reducers';
 import {BrowserRouter,Switch,Route,Link} from 'react-router-dom';
 
 import Login from './components/Login';
+
+import Header from './routes/Header';
  
 //redux
 
@@ -26,35 +28,10 @@ import Login from './components/Login';
 
 const store=createStore(rootReducer,composeWithDevTools(applyMiddleware(thunk)));
 
-const Header=()=>(
-  <nav className="navbar navbar-default btn btn-light">
-    <div className="container-fluid">
-      <div className="navbar-header">
 
 
-     <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-       <span className="icon-bar" />
-       <span className="icon-bar" />
-       <span className="icon-bar" />
-       
-       </button>  
 
-       <Link className="navbar-brand" to="/">
-             DIARY2019 
-       </Link>
 
-      </div>
-          
-   <div className="text-primary" id="myNavbar">
-
-     <ul className="nav navbar-nav navbar-right">
-       <li><Link to="/login">Login</Link></li>
-     </ul>
-   </div>
-
-    </div>
-  </nav>
-);
 
 
 ReactDOM.render(
