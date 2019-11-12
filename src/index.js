@@ -27,12 +27,12 @@ import Login from './components/Login';
 const store=createStore(rootReducer,composeWithDevTools(applyMiddleware(thunk)));
 
 const Header=()=>(
-  <nav className="navbar navbar-default">
+  <nav className="navbar navbar-default btn btn-light">
     <div className="container-fluid">
       <div className="navbar-header">
 
 
-     <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#mtNavbar">
+     <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
        <span className="icon-bar" />
        <span className="icon-bar" />
        <span className="icon-bar" />
@@ -40,10 +40,18 @@ const Header=()=>(
        </button>  
 
        <Link className="navbar-brand" to="/">
-          DIARY2018 
+             DIARY2019 
        </Link>
 
       </div>
+          
+   <div className="text-primary" id="myNavbar">
+
+     <ul className="nav navbar-nav navbar-right">
+       <li><Link to="/login">Login</Link></li>
+     </ul>
+   </div>
+
     </div>
   </nav>
 );

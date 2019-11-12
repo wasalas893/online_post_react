@@ -5,7 +5,7 @@ class Login extends Component {
         return(
             <div className="container-fluid">
                 <div className="row text-center">
-                    <div className="col-sm-12 jumbotron">
+                    <div className="col-sm-12 jumbotron" >
 
                         <h1>
                             Login with your <b>Social Network</b>
