@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
 
+import {connect} from 'react-redux';
+
+import {googleLogin} from '../actions/userAction';
+
 class Login extends Component {
     render(){
         return(
@@ -13,7 +17,7 @@ class Login extends Component {
 
                     </div>
                     <div className="col-sm-6">
-                        <button className="btn btn-danger btn-lg">Google</button>
+                        <button className="btn btn-danger btn-lg" onClick={this.props.googleLogin}>Google</button>
 
                     </div>
 
@@ -26,4 +30,4 @@ class Login extends Component {
         );
     }
 }
-export default Login;
+export default connect(null,{googleLogin})(Login);
