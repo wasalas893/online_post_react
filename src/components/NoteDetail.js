@@ -2,15 +2,34 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
+import _ from 'lodash';
+
+import Comment from './Comment';
+
+import SubmitComment from './SubmitComment';
+
 class NoteDetail extends Component {
+    
+    renderComments(){
+        const {note}=this.props;
+        return _.map(note.comments,(comment,key)=>{
+        return <Comment key={key} id={key}>{comment.commentBody}</Comment>
+
+        })
+    }
+
+
  render() {
      const{note}=this.props;
  return( 
           <div className="container-fluid text-center">
               <div className="row">
                   <div className="col-sm-6 col-sm-offset-3">
-                      <h1 className="text-success">{note.title}</h1>
+                  <h1 className="text-success">{note.title}</h1>
                          <p>{note.body}</p>
+                         <SubmitComment id={this.props.match.params.id} />
+                         {this.renderComments()}
+                         <br />
 
                   <Link to="/">Back</Link>
                   </div>
