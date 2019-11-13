@@ -32,7 +32,7 @@ class Header extends Component{
   
        <ul className="nav navbar-nav navbar-right">
 
-           {this.props.user===null?(
+           {this.props.user === null ?(
                 <li><Link to="/login">Login</Link></li>
            ):(
             <li><Link to="/logout" onClick={()=>this.props.logout()}>Logout</Link></li>

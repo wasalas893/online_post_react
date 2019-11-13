@@ -1,6 +1,6 @@
 import React,{ Component } from 'react';
 
-import {database} from '../firebase';
+//import {database} from '../firebase';
  
 import _ from 'lodash'
 
@@ -36,16 +36,12 @@ constructor(props){
 }
 
 componentDidMount(){
-  database.on('value', snapshot=>{
 
-    this.setState({
-      posts:snapshot.val()
-
-    });
-
-  });
+ 
+ 
 
   this.props.getUser();
+  this.props.getNotes();
   
 }
 
@@ -53,10 +49,10 @@ componentDidMount(){
 
 renderPosts(){
  
-    return _.map(this.state.posts,(post,key)=>{
+    return _.map(this.props.notes,(note,key)=>{
       return(<NoteCard key={key}>
-    <h2>{post.title}</h2>
-      <p>{post.body}</p>
+    <h2>{note.title}</h2>
+      <p>{note.body}</p>
 
       <button className="btn btn-danger" onClick={()=>this.props.deleteNote(key)}>Delete</button>
 
