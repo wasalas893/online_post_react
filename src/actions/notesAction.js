@@ -1,15 +1,35 @@
-import{GET_NOTES} from '../actionTypes';
+import{GET_NOTES,NOTES_STATUS} from '../actionTypes';
 
 import {database} from '../firebase'
 
 export function getNotes(){
     return dispatch=> {
+        //notes_status true
+          dispatch({
+              type:NOTES_STATUS,
+              payload:true
+          });
+
         database.on('value',snapshot=>{
             dispatch({
                 type:GET_NOTES,
-                payload:snapshot.val()
+                payload: snapshot.val()
             });
+
+             //notes status false
+        dispatch({
+            type:NOTES_STATUS,
+            payload:false
         });
+                // wait until somthing changes and aganing
+        },()=>{
+            dispatch({
+                type:NOTES_STATUS,
+                payload: -1
+            })
+
+        });
+      
     };
 }
 export function saveNote(note){

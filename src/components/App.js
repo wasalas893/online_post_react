@@ -35,15 +35,15 @@ constructor(props){
   this.handleSubmit=this.handleSubmit.bind(this);
 }
 
-componentDidMount(){
+//componentDidMount(){
 
  
  
 
-  this.props.getUser();
-  this.props.getNotes();
+  //this.props.getUser();
+  //this.props.getNotes();
   
-}
+//}
 
 //render posts from firebase
 
