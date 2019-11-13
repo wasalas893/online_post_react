@@ -23,6 +23,8 @@ import Header from './routes/Header';
 import LoadingComponent from './components/LoadingComponent';
 
 import AuthenticatedComponent from './components/AutnenticatedComponent';
+
+import NoteDetail from './components/NoteDetail';
  
 //redux
 
@@ -51,6 +53,7 @@ ReactDOM.render(
     <AuthenticatedComponent>
     <Header />
     <Route path="/" component={App} exact={true} />
+    <Route path="/:id" component={NoteDetail} exact={true} />
     </AuthenticatedComponent>
   </Switch>
 </div>

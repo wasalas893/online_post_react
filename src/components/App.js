@@ -4,7 +4,7 @@ import React,{ Component } from 'react';
  
 import _ from 'lodash'
 
-
+import { Link } from 'react-router-dom';
 import {connect} from 'react-redux';
 
 import {getNotes,saveNote,deleteNote} from '../actions/notesAction';
@@ -51,10 +51,16 @@ renderPosts(){
  
     return _.map(this.props.notes,(note,key)=>{
       return(<NoteCard key={key}>
+      <Link to={`/${key}`}>
     <h2>{note.title}</h2>
+    </Link>
       <p>{note.body}</p>
 
+      {note.uid===this.props.user.uid && (
+
       <button className="btn btn-danger" onClick={()=>this.props.deleteNote(key)}>Delete</button>
+
+      )}
 
       </NoteCard>)
     });
@@ -71,13 +77,15 @@ handleSubmit(e){
   e.preventDefault();
    const note= {
      title:this.state.title,
-     body:this.state.body
+     body:this.state.body,
+     uid:this.props.user.uid
    };
  //  database.push(note);
  this.props.saveNote(note);
  this.setState({
     title:'',
     body:''
+    
  });
 }
 
@@ -113,7 +121,7 @@ handleSubmit(e){
             </div>
            
           </form>
-         
+         <br/>
          {this.renderPosts()}
         </div>
       </div>
