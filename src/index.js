@@ -43,12 +43,13 @@ ReactDOM.render(
     <BrowserRouter>
     <LoadingComponent>
 <div>
-  <Header />
+ 
   <Switch>
   
     <Route path="/login" component={Login} exact={true} />
 
     <AuthenticatedComponent>
+    <Header />
     <Route path="/" component={App} exact={true} />
     </AuthenticatedComponent>
   </Switch>
