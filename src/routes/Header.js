@@ -23,7 +23,7 @@ class Header extends Component{
          </button>  
   
          <Link className="navbar-brand" to="/">
-               DIARY2019 
+               Welcom 2019 
          </Link>
   
         </div>

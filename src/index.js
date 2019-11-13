@@ -21,6 +21,8 @@ import Login from './components/Login';
 import Header from './routes/Header';
 
 import LoadingComponent from './components/LoadingComponent';
+
+import AuthenticatedComponent from './components/AutnenticatedComponent';
  
 //redux
 
@@ -43,8 +45,12 @@ ReactDOM.render(
 <div>
   <Header />
   <Switch>
-    <Route path="/" component={App} exact={true} />
+  
     <Route path="/login" component={Login} exact={true} />
+
+    <AuthenticatedComponent>
+    <Route path="/" component={App} exact={true} />
+    </AuthenticatedComponent>
   </Switch>
 </div>
 </LoadingComponent>
