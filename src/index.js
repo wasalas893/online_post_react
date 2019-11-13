@@ -14,7 +14,7 @@ import {composeWithDevTools} from 'redux-devtools-extension'
 
 import rootReducer from './reducers';
 
-import {BrowserRouter,Switch,Route,Link} from 'react-router-dom';
+import {BrowserRouter,Switch,Route,Link,Redirect} from 'react-router-dom';
 
 import Login from './components/Login';
 
@@ -25,6 +25,8 @@ import LoadingComponent from './components/LoadingComponent';
 import AuthenticatedComponent from './components/AutnenticatedComponent';
 
 import NoteDetail from './components/NoteDetail';
+
+import NoteEdit from './components/NoteEdit';
  
 //redux
 
@@ -49,9 +51,11 @@ ReactDOM.render(
   <Switch>
   
     <Route path="/login" component={Login} exact={true} />
+    
 
     <AuthenticatedComponent>
     <Header />
+    <Route path="/:id/edit" component={NoteEdit} exact={true} />
     <Route path="/" component={App} exact={true} />
     <Route path="/:id" component={NoteDetail} exact={true} />
     </AuthenticatedComponent>

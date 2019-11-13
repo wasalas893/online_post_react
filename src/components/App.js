@@ -33,6 +33,8 @@ constructor(props){
   this.handleChange=this.handleChange.bind(this);
 
   this.handleSubmit=this.handleSubmit.bind(this);
+
+  this.renderPosts=this.renderPosts.bind(this);
 }
 
 //componentDidMount(){
@@ -58,7 +60,13 @@ renderPosts(){
 
       {note.uid===this.props.user.uid && (
 
+        <div>
+
       <button className="btn btn-danger" onClick={()=>this.props.deleteNote(key)}>Delete</button>
+      <button className="btn btn-Light text-center">
+        <Link to={`/${key}/edit`} >Update</Link>
+      </button>
+      </div>
 
       )}
 
